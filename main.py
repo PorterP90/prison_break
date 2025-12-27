@@ -1,6 +1,5 @@
 import pygame
-
-
+from player import playerClass
 
 
 pygame.init()
@@ -8,8 +7,10 @@ pygame.init()
 
 #Create game window
 screenHight, screenWidth = 500, 500
-screenColor = (0, 0, 0)
+screenColor = (166, 247, 226)
 screen = pygame.display.set_mode((screenWidth, screenHight))
+screen.fill(screenColor)
+
 
 
 #framerate
@@ -22,6 +23,8 @@ running = True
 
 def gameLoop():
 
+    
+
     gameLoops = 0
     running = True
 
@@ -31,7 +34,10 @@ def gameLoop():
                 pygame.quit()
             elif event.type == pygame.K_ESCAPE:
                 pygame.quit()
-
+        
+        
+        
+        pygame.display.update()
 
     return None
 
