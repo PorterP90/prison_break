@@ -17,6 +17,7 @@ class playerClass(pygame.sprite.Sprite):
         self.itemSlot2 = None
         self.itemSlot3 = None
         self.itemSlot4 = None
+        self.susMeter = 75
         
 
     def checkMovement(self):
@@ -55,4 +56,14 @@ class playerClass(pygame.sprite.Sprite):
         self.checkMovement()
         self.outOfBounds(self.screenHight, self.screenWidth)
         self.switchSlot()
+
+    def susLevel(self):
+        if self.susMeter >= 0:
+            return False
+        if self.susMeter >= 25:
+            return 25
+        if self.susMeter >= 50:
+            return 50
+        if self.susMeter >= 75:
+            return 75
         

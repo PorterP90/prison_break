@@ -1,7 +1,6 @@
 import pygame
 from player import playerClass
-
-
+from guard import *
 pygame.init()
 
 
@@ -32,6 +31,9 @@ def gameLoop():
 
     player = playerClass(screenHight//2, screenWidth//2, screenHight, screenWidth)
 
+    cop = guardClass(screenHight, screenWidth)
+    guards.add(cop)
+
     while running:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -42,8 +44,15 @@ def gameLoop():
         
 
         player.update()
+        cop.update(player)
+        
+
+        print(cop.followDistance)
+
         screen.fill(screenColor)
-        pygame.draw.rect(screen, (255,0,0), player.rect)
+        pygame.draw.rect(screen, (0,255,0), player.rect)
+        pygame.draw.rect(screen, (255, 0, 0), cop.rect)
+        
         
 
         pygame.display.update()
